@@ -5,7 +5,7 @@ class Libbigwig < Formula
   sha256 "221002fe249e8099009f0790f44bfe991e85cb23763cf5fc494e745c0160edc2"
   # tag "bioinformatics"
 
-  depends_on 'curl';
+  depends_on "curl"
 
   def install
     curl = Formula["curl"]
@@ -26,7 +26,7 @@ class Libbigwig < Formula
       return 0;
     }
     EOS
-    libs = %W[-lBigWig]
+    libs = %w[-lBigWig]
     system ENV.cc, "-o", "test", "libbigwig.c", "-I#{include}", "-L#{lib}", *libs
     system "./test"
   end
